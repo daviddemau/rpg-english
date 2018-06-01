@@ -40,7 +40,7 @@ body {
   background-color: rgb(230, 230, 230);
 }
 
-.surlignee {
+.highlighted {
   background-color: rgb(249, 239, 152) !important;
 }
 
@@ -56,23 +56,23 @@ body {
 /* ELEMENTS */
 /* -------------------------------------------------- */
 
-.joueur1 {
-  /* background-image: url('images/Knight/Stand/1.png'); */
+.player1 {
+  background-image: url('images/Knight/Stand/1.png');
   background-size: cover;
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
-  animation: garde 1s infinite;
+  /* animation: garde 1s infinite; */
 }
 
-.joueur2 {
-  /* background-image: url('images/Archer/Stand/1.png'); */
+.player2 {
+  background-image: url('images/Archer/Stand/1.png');
   background-size: cover;
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
   transform: scaleX(-1);
-  animation: rodeur 1s infinite;
+  /* animation: rodeur 1s infinite; */
 }
 
 .obstacle {
@@ -83,7 +83,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.glaive {
+.woodStick {
   background-image: url('images/Icon Pack 2/128x128/woodSword.png');
   background-size: cover;
   background-size: 70%;
