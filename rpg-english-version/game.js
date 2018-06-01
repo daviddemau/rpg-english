@@ -14,11 +14,11 @@ function lancerCombat() {
   $('.tableau-archer').css('margin-left', '110px');
 
   //surligner le premier joueur qui attaque
-  surlignerJoueur();
+  hightlightPlayer();
 }
 
 //personne ne defend au debut du combat
-var defendre = false;
+var defense = false;
 
 //bouton attaquer
 $('.attaque').click(function () {
@@ -27,7 +27,7 @@ $('.attaque').click(function () {
 
 //bouton defendre
 $('.defense').click(function () {
-  currentPlayer.defendre();
+  currentPlayer.defend();
 });
 
 //bouton soins
@@ -37,13 +37,13 @@ $('.soin').click(function () {
 
 //changer de joueur à chaque action et surligner le bon joueur
 $(':button').click(function () {
-  actualiserStats();
-  changerTour();
-  surlignerJoueur();
+  refreshStats();
+  changeRound();
+  hightlightPlayer();
 });
 
 //changer de tour
-function changerTour() {
+function changeRound() {
   if(currentPlayer == player1) {
     currentPlayer = player2;
     opponent = player1;
@@ -53,7 +53,7 @@ function changerTour() {
   }
 }
 
-function actualiserStats() {
+function refreshStats() {
   $('.garde-stats span:nth(0)').html(player1.lifePoints);
   $('.archer-stats span:nth(0)').html(player2.lifePoints);
   $('.garde-stats span:nth(1)').html(player1.attackPoints);
@@ -62,7 +62,7 @@ function actualiserStats() {
   $('.archer-stats span:nth(2)').html(player2.equipment.name);
 }
 
-function surlignerJoueur() {
+function hightlightPlayer() {
   if (currentPlayer == player2) {
     $('.tableau-garde').removeClass('hightlight');
     $('.tableau-garde button').css('display', 'none');
