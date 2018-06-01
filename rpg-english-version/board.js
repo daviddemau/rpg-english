@@ -1,9 +1,9 @@
 //variables
 var board = [];
 
-//créer une nouvelle grille de jeu
-const jeu = new Grid(9, 3, 2, 10);
-jeu.createGrid();
+//créer une nouvelle grille de game
+const game = new Grid(9, 3, 2, 10);
+game.createGrid();
 
 //générer des indexes aléatoires et uniques pour les éléments du board
 var items = [];
@@ -18,20 +18,20 @@ const axe = new Weapon('axe', 25, randomizeIndex());
 const shield = new Armor('shield', 60, randomizeIndex());
 
 //créer les joueurs
-const joueur1 = new Player('joueur1', 150, 10, woodStick, randomizeIndex());
-const joueur2 = new Player('joueur2', 150, 10, woodStick, randomizeIndex());
+const player1 = new Player('player1', 100, 10, woodStick, randomizeIndex());
+const player2 = new Player('player2', 100, 10, woodStick, randomizeIndex());
 
 //créer les obstacles
 var obstacles = [];
-for (var i = 0; i < jeu.obstacles; i++) {
+for (var i = 0; i < game.obstacles; i++) {
   obstacles.push(randomizeIndex());
 }
 
-//créer le board de jeu avec les items correspondants
+//créer le board de game avec les items correspondants
 genererPlateau();
 
 function randomizeIndex() {
-  let nbrItems = jeu.joueurs + jeu.armes + jeu.obstacles;
+  let nbrItems = game.joueurs + game.armes + game.obstacles;
   while (items.length < nbrItems) {
     let random = Math.floor(Math.random() * board.length);
     if (!items.includes(random)) {
@@ -43,8 +43,8 @@ function randomizeIndex() {
 
 function genererPlateau() {
   //les joueurs ne doivent pas être à côté
-  if (Math.abs(joueur1.index - joueur2.index) == 1 ||
-  Math.abs(joueur1.index - joueur2.index) == 10) {
+  if (Math.abs(player1.index - player2.index) == 1 ||
+  Math.abs(player1.index - player2.index) == 10) {
     location.reload();
   } else {
     board.map((element) => {
@@ -61,9 +61,9 @@ function genererPlateau() {
 
       //définir si une cellule contient un joueur, une arme ou une armure
       switch (board.indexOf(element)) {
-        case joueur1.index: cell.classList.add('joueur1');
+        case player1.index: cell.classList.add('player1');
         break;
-        case joueur2.index: cell.classList.add('joueur2');
+        case player2.index: cell.classList.add('player2');
         break;
         case shield.index: cell.classList.add('shield');
         break;
@@ -96,9 +96,9 @@ function genererPlateau() {
 }
 
 //afficher les stats des joueurs
-$('.garde-stats span:nth(0)').html(joueur1.lifePoints);
-$('.archer-stats span:nth(0)').html(joueur2.lifePoints);
-$('.garde-stats span:nth(1)').html(joueur1.attackPoints);
-$('.archer-stats span:nth(1)').html(joueur2.attackPoints);
-$('.garde-stats span:nth(2)').html(joueur1.equipment.name);
-$('.archer-stats span:nth(2)').html(joueur2.equipment.name);
+$('.garde-stats span:nth(0)').html(player1.lifePoints);
+$('.archer-stats span:nth(0)').html(player2.lifePoints);
+$('.garde-stats span:nth(1)').html(player1.attackPoints);
+$('.archer-stats span:nth(1)').html(player2.attackPoints);
+$('.garde-stats span:nth(2)').html(player1.equipment.name);
+$('.archer-stats span:nth(2)').html(player2.equipment.name);

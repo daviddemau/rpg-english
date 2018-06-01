@@ -1,10 +1,10 @@
 //definir les joueurs
-var joueurEnCours = joueur1;
-var adversaire = joueur2;
+var currentPlayer = player1;
+var opponent = player2;
 
 //deplacements sur le plateau
-joueurEnCours.trouverCasesDisponibles();
-joueurEnCours.deplacerJoueur();
+currentPlayer.findWays();
+currentPlayer.movePlayer();
 
 //demarrer combat
 function lancerCombat() {
@@ -22,17 +22,17 @@ var defendre = false;
 
 //bouton attaquer
 $('.attaque').click(function () {
-  joueurEnCours.attaquer();
+  currentPlayer.attaquer();
 });
 
 //bouton defendre
 $('.defense').click(function () {
-  joueurEnCours.defendre();
+  currentPlayer.defendre();
 });
 
 //bouton soins
 $('.soin').click(function () {
-  joueurEnCours.soins();
+  currentPlayer.soins();
 });
 
 //changer de joueur à chaque action et surligner le bon joueur
@@ -44,31 +44,31 @@ $(':button').click(function () {
 
 //changer de tour
 function changerTour() {
-  if(joueurEnCours == joueur1) {
-    joueurEnCours = joueur2;
-    adversaire = joueur1;
-  } else if(joueurEnCours == joueur2){
-    joueurEnCours = joueur1;
-    adversaire = joueur2;
+  if(currentPlayer == player1) {
+    currentPlayer = player2;
+    opponent = player1;
+  } else if(currentPlayer == player2){
+    currentPlayer = player1;
+    opponent = player2;
   }
 }
 
 function actualiserStats() {
-  $('.garde-stats span:nth(0)').html(joueur1.lifePoints);
-  $('.archer-stats span:nth(0)').html(joueur2.lifePoints);
-  $('.garde-stats span:nth(1)').html(joueur1.attackPoints);
-  $('.archer-stats span:nth(1)').html(joueur2.attackPoints);
-  $('.garde-stats span:nth(2)').html(joueur1.equipment.name);
-  $('.archer-stats span:nth(2)').html(joueur2.equipment.name);
+  $('.garde-stats span:nth(0)').html(player1.lifePoints);
+  $('.archer-stats span:nth(0)').html(player2.lifePoints);
+  $('.garde-stats span:nth(1)').html(player1.attackPoints);
+  $('.archer-stats span:nth(1)').html(player2.attackPoints);
+  $('.garde-stats span:nth(2)').html(player1.equipment.name);
+  $('.archer-stats span:nth(2)').html(player2.equipment.name);
 }
 
 function surlignerJoueur() {
-  if (joueurEnCours == joueur2) {
+  if (currentPlayer == player2) {
     $('.tableau-garde').removeClass('hightlight');
     $('.tableau-garde button').css('display', 'none');
     $('.tableau-archer').addClass('hightlight');
     $('.tableau-archer button').css('display', 'inline-block');
-  } else if (joueurEnCours == joueur1) {
+  } else if (currentPlayer == player1) {
     $('.tableau-archer').removeClass('hightlight');
     $('.tableau-archer button').css('display', 'none');
     $('.tableau-garde').addClass('hightlight');
@@ -77,9 +77,9 @@ function surlignerJoueur() {
 }
 
 function terminerPartie() {
-  if (joueur1.pointsVie <= 0) {
+  if (player1.lifePoints <= 0) {
     $('.end').css('background', 'url(styles/images/Knight/Die/9.png) bottom no-repeat / contain');
-  } else if (joueur2.pointsVie <= 0) {
+  } else if (player2.lifePoints <= 0) {
     $('.end').css('background', 'url(styles/images/Archer/Die/9.png) bottom no-repeat / contain');
   }
 

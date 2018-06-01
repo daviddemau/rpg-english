@@ -7,25 +7,25 @@ class Player {
     this.index = index;
   }
 
-  trouverCasesDisponibles () {
+  findWays () {
     //selectionner la case du joueur en cours
-    var caseJoueur;
-    if (joueurEnCours == joueur1) {
-      caseJoueur = $('.joueur1');
-    } else if (joueurEnCours == joueur2) {
-      caseJoueur = $('.joueur2');
+    var playerCell;
+    if (currentPlayer == player1) {
+      playerCell = $('.player1');
+    } else if (currentPlayer == player2) {
+      playerCell = $('.player2');
     }
 
     //enregistrer la rangee et colonne du joueur en cours
-    var colonneJoueur = caseJoueur.attr('data-colonne');
-    var rangeeJoueur = caseJoueur.attr('data-rangee');
+    var playerColumn = playerCell.attr('data-colonne');
+    var playerRow = playerCell.attr('data-rangee');
 
     //trouver les cases à droite
-    $('div[data-rangee=' + rangeeJoueur + ']').each(function () {
+    $('div[data-rangee=' + playerRow + ']').each(function () {
       for (var i = 1; i < 4; i++) {
-        if ($(this).attr('data-colonne') == Number(colonneJoueur) + i) {
-          if (!$(this).hasClass('obstacle') && !$(this).hasClass('joueur1')
-           && !$(this).hasClass('joueur2')) {
+        if ($(this).attr('data-colonne') == Number(playerColumn) + i) {
+          if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
+           && !$(this).hasClass('player2')) {
             $(this).addClass('surlignee');
           } else {
             return false;
@@ -36,11 +36,11 @@ class Player {
 
     //trouver les cases à gauche
     jQuery.fn.reverse = [].reverse;
-    $('div[data-rangee='+ rangeeJoueur + ']').reverse().each(function () {
+    $('div[data-rangee='+ playerRow + ']').reverse().each(function () {
       for (var i = 1; i < 4; i++) {
-        if ($(this).attr('data-colonne') == Number(colonneJoueur) - i) {
-          if (!$(this).hasClass('obstacle') && !$(this).hasClass('joueur1')
-           && !$(this).hasClass('joueur2')) {
+        if ($(this).attr('data-colonne') == Number(playerColumn) - i) {
+          if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
+           && !$(this).hasClass('player2')) {
             $(this).addClass('surlignee');
           } else {
             return false;
@@ -50,11 +50,11 @@ class Player {
     });
 
     //trouver les cases en haut
-    $('div[data-colonne=' + colonneJoueur + ']').each(function () {
+    $('div[data-colonne=' + playerColumn + ']').each(function () {
       for(var i = 1; i < 4; i++) {
-        if ($(this).attr('data-rangee') == Number(rangeeJoueur) + i) {
-          if (!$(this).hasClass('obstacle') && !$(this).hasClass('joueur1')
-           && !$(this).hasClass('joueur2')) {
+        if ($(this).attr('data-rangee') == Number(playerRow) + i) {
+          if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
+           && !$(this).hasClass('player2')) {
             $(this).addClass('surlignee');
           } else {
             return false;
@@ -64,11 +64,11 @@ class Player {
     });
 
     //trouver les cases en bas
-    $('div[data-colonne=' + colonneJoueur + ']').reverse().each(function () {
+    $('div[data-colonne=' + playerColumn + ']').reverse().each(function () {
       for (var i = 1; i < 4; i++) {
-        if ($(this).attr('data-rangee') == Number(rangeeJoueur) - i) {
-          if (!$(this).hasClass('obstacle') && !$(this).hasClass('joueur1')
-           && !$(this).hasClass('joueur2')) {
+        if ($(this).attr('data-rangee') == Number(playerRow) - i) {
+          if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
+           && !$(this).hasClass('player2')) {
             $(this).addClass('surlignee');
           } else {
             return false;
@@ -78,7 +78,7 @@ class Player {
     });
   }
 
-  deplacerJoueur() {
+  movePlayer() {
     //selectionner toutes les cases de déplacement potentielles
     var chemins = $('.surlignee');
 
@@ -94,31 +94,31 @@ class Player {
       var caseCliquee = $(this);
 
       //attribution des cases à chaque tour
-      if (joueurEnCours == joueur1) {
-        caseDepart = $('.joueur1');
-        caseAutreJoueur = $('.joueur2');
-      } else if (joueurEnCours == joueur2) {
-        caseDepart = $('.joueur2');
-        caseAutreJoueur = $('.joueur1');
+      if (currentPlayer == player1) {
+        caseDepart = $('.player1');
+        caseAutreJoueur = $('.player2');
+      } else if (currentPlayer == player2) {
+        caseDepart = $('.player2');
+        caseAutreJoueur = $('.player1');
       }
 
       // Faire une vérification. (une arme sur la cellule ou pas?) - si arme, faire l'échange
       switch (caseCliquee.attr('class')) {
-        case 'cellule axe surlignee': joueurEnCours.echangerArme(caseCliquee, axe);
+        case 'cellule axe surlignee': currentPlayer.echangerArme(caseCliquee, axe);
         break;
-        case 'cellule sword surlignee': joueurEnCours.echangerArme(caseCliquee, sword);
+        case 'cellule sword surlignee': currentPlayer.echangerArme(caseCliquee, sword);
         break;
-        case 'cellule bow surlignee': joueurEnCours.echangerArme(caseCliquee, bow);
+        case 'cellule bow surlignee': currentPlayer.echangerArme(caseCliquee, bow);
         break;
-        case 'cellule woodStick surlignee': joueurEnCours.echangerArme(caseCliquee, woodStick);
+        case 'cellule woodStick surlignee': currentPlayer.echangerArme(caseCliquee, woodStick);
         break;
 
         //si on tombe sur le bouclier
-        case 'cellule shield surlignee' : joueurEnCours.lifePoints += shield.defensePoints;
+        case 'cellule shield surlignee' : currentPlayer.lifePoints += shield.defensePoints;
           actualiserStats();
       }
 
-      //la case cliquee prend la classe du joueurEnCours
+      //la case cliquee prend la classe du currentPlayer
       caseCliquee.attr('class', caseDepart.attr('class'));
 
       //la case de depart prend la classe de l'arme laissee avant
@@ -139,23 +139,23 @@ class Player {
         lancerCombat();
       } else {
         changerTour();
-        joueurEnCours.trouverCasesDisponibles();
-        joueurEnCours.deplacerJoueur();
+        currentPlayer.findWays();
+        currentPlayer.movePlayer();
       }
     })
   }
   //fonction pour échanger son equipement contre l'arme au sol
   echangerArme(caseCliquee, weapon) {
     //on laisse l'arme en cours sur la case cliquée
-    caseCliquee.attr('data-armeLaissee', joueurEnCours.equipment.name);
-    joueurEnCours.equipment = weapon;
-    joueurEnCours.attackPoints = weapon.attackPoints;
+    caseCliquee.attr('data-armeLaissee', currentPlayer.equipment.name);
+    currentPlayer.equipment = weapon;
+    currentPlayer.attackPoints = weapon.attackPoints;
     actualiserStats();
   }
 
   attaquer() {
     //animations
-    if (joueurEnCours == joueur1) {
+    if (currentPlayer == player1) {
       $('.avatar-garde').css('animation', 'garde-attaque 0.6s');
     } else {
       $('.avatar-archer').css('animation', 'archer-attaque 0.6s');
@@ -166,14 +166,14 @@ class Player {
       $('.avatar-archer').css('animation', 'rodeur 1s infinite');
     }, 500);
 
-    //enlever à l'adversaire les pa du joueur en cours, sauf s'il defend (2 fois moins de degats)
+    //enlever à l'opponent les pa du joueur en cours, sauf s'il defend (2 fois moins de degats)
     if (defendre) {
-      adversaire.lifePoints -= joueurEnCours.attackPoints / 2;
+      opponent.lifePoints -= currentPlayer.attackPoints / 2;
       defendre = false;
     } else {
-      adversaire.lifePoints -= joueurEnCours.attackPoints;
+      opponent.lifePoints -= currentPlayer.attackPoints;
     }
-    if (joueur1.lifePoints <= 0 || joueur2.lifePoints <= 0) {
+    if (player1.lifePoints <= 0 || player2.lifePoints <= 0) {
       terminerPartie();
     }
   }
@@ -183,6 +183,6 @@ class Player {
   }
 
   soins()   {
-    joueurEnCours.lifePoints += 8;
+    currentPlayer.lifePoints += 8;
   }
 }
