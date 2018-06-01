@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/jeu.css">
+  <link rel="stylesheet" href="styles/queries.css">
+</head>
+<body>
+
+  <div class="main">
+    <div class="tableau-garde">
+      <div class="avatar-garde"></div>
+      <div class="garde-stats">
+        <ul>
+          <li>Points de vie:<span></span></li>
+          <li>Points d'attaque:<span></span></li>
+          <li>Equipement:<span></span></li>
+        </ul>
+      </div>
+      <button class="attaque hide">attaquer</button>
+      <button class="defense hide">defendre</button>
+      <button class="soin hide">soins</button>
+    </div>
+    <div class="plateau">
+    </div>
+    <div class="gameOver"><p>GAME OVER</p>
+      <div class="end"></div>
+      <button class="reset">Rejouer</button>
+      </div>
+    <div class="tableau-archer">
+      <div class="avatar-archer"></div>
+      <div class="archer-stats">
+        <ul>
+          <li>Points de vie:<span></span></li>
+          <li>Points d'attaque:<span></span></li>
+          <li>Equipement:<span></span></li>
+        </ul>
+      </div>
+      <button class="attaque hide">attaquer</button>
+      <button class="defense hide">defendre</button>
+      <button class="soin hide">soins</button>
+    </div>
+  </div>
+
+  <script src="images-preload.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="classes/armor.js"></script>
+  <script src="classes/cell.js"></script>
+  <script src="classes/grid.js"></script>
+  <script src="classes/player.js"></script>
+  <script src="classes/weapon.js"></script>
+  <script src="board.js"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>
