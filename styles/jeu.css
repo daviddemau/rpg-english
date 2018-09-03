@@ -1,0 +1,253 @@
+/* -------------------------------------------------- */
+/* BASIC SETUP
+/* -------------------------------------------------- */
+
+* {
+  font-family: monospace;
+}
+
+body {
+  background: #2d9617;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* -------------------------------------------------- */
+/*  MAIN BOARD */
+/* -------------------------------------------------- */
+
+.logo {
+  position: absolute;
+  top: -40px;
+  left: 40%;
+  width: 18%;
+}
+
+.main {
+  width: 100%;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.plateau {
+  width: 700px;
+  float: left;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.cell {
+  width: 89px;
+  height: 75px;
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+  display: table-cell;
+  background-color: rgb(230, 230, 230);
+}
+
+.highlighted {
+  cursor: pointer;
+  background-color: rgb(249, 239, 152) !important;
+}
+
+.raw:nth-child(odd) div:nth-child(odd) {
+  background-color: #ecf0f1
+}
+
+.raw:nth-child(even) div:nth-child(even) {
+  background-color: #ecf0f1
+}
+
+/* -------------------------------------------------- */
+/* ELEMENTS */
+/* -------------------------------------------------- */
+
+.player1 {
+  background-image: url('images/Knight/Stand/1.png');
+  background-size: cover;
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* animation: garde 1s infinite; */
+}
+
+.player2 {
+  background-image: url('images/Archer/Stand/1.png');
+  background-size: cover;
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  /* animation: rodeur 1s infinite; */
+}
+
+.obstacle {
+  background-image: url('images/rock-576670_1280.png');
+  background-size: cover;
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.woodStick {
+  background-image: url('images/Icon Pack 2/128x128/woodSword.png');
+  background-size: cover;
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sword {
+  background-image: url('images/Icon Pack 2/128x128/sword2.png');
+  background-size: cover;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.axe {
+  background-image: url('images/Icon Pack 2/128x128/axeDouble.png');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bow {
+  background-image: url('images/Icon Pack 2/128x128/bow2.png');
+  background-size: contain;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shield {
+  background-image: url('images/Icon Pack 2/128x128/shieldSmall2.png');
+  background-size: contain;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* -------------------------------------------------- */
+/* PLAYERS STATS */
+/* -------------------------------------------------- */
+
+.tableau-garde {
+  border: 1px solid black;
+  background: rgb(226, 222, 222);
+  width: 225px;
+  height: 320px;
+  float: left;
+  margin-top: 80px;
+  font-size: 120%;
+}
+
+.tableau-garde button {
+  float: left;
+  margin-left: 10px;
+  display: none;
+}
+
+.tableau-archer {
+  border: 1px solid black;
+  background: rgb(226, 222, 222);
+  width: 225px;
+  height: 320px;
+  float: left;
+  margin-top: 80px;
+  font-size: 120%;
+}
+
+.tableau-archer button {
+  float: left;
+  margin-left: 10px;
+  display: none;
+}
+
+.avatar-garde {
+  height: 190px;
+  background-size: cover;
+  animation: garde 1s infinite;
+}
+
+.garde-stats {
+  float: left;
+  margin-left: -20px;
+}
+
+.garde-stats span {
+  margin-left: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+.garde-stats ul {
+  list-style: none;
+}
+
+.avatar-archer {
+  height: 190px;
+  background-size: cover;
+  animation: rodeur 1s infinite;
+}
+
+.archer-stats {
+  float: left;
+  list-style: none;
+  margin-left: -20px;
+}
+
+.archer-stats span {
+  margin-left: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+
+.archer-stats ul {
+  list-style: none;
+}
+
+/* -------------------------------------------------- */
+/* FIGHT ROUND */
+/* -------------------------------------------------- */
+
+.hightlight {
+  border: 3px solid orange;
+  display: inline-block;
+}
+
+/* -------------------------------------------------- */
+/* GAMEOVER BOX*/
+/* -------------------------------------------------- */
+
+.gameOver {
+  border: 2px solid rgb(155, 170, 41);
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  width: 40%;
+  height: 250px;
+  background: rgb(155, 170, 41);
+  color: white;
+  text-align: center;
+  font-size: 140%;
+  display: none;
+}
+
+.end {
+  background-size: cover;
+  width: 112%;
+  height: 110px;
+  position: relative;
+}
+
+.gameOver button {
+  width: 80px;
+  height: 30px;
+  margin-top: 35px;
+}

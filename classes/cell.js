@@ -1,6 +1,6 @@
 class Cell {
-  constructor(rangee, col) {
-    this.rangee = rangee;
+  constructor(raw, col) {
+    this.raw = raw;
     this.col = col;
   }
 }

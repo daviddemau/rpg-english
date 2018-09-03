@@ -18,10 +18,10 @@ class Player {
 
     //save currentPlayer raw and column
     var playerColumn = playerCell.attr('data-colonne');
-    var playerRow = playerCell.attr('data-rangee');
+    var playerRow = playerCell.attr('data-raw');
 
     //find ways on the right
-    $('div[data-rangee=' + playerRow + ']').each(function () {
+    $('div[data-raw=' + playerRow + ']').each(function () {
       for (var i = 1; i < 4; i++) {
         if ($(this).attr('data-colonne') == Number(playerColumn) + i) {
           if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
@@ -36,7 +36,7 @@ class Player {
 
     //find ways on the left
     jQuery.fn.reverse = [].reverse;
-    $('div[data-rangee='+ playerRow + ']').reverse().each(function () {
+    $('div[data-raw='+ playerRow + ']').reverse().each(function () {
       for (var i = 1; i < 4; i++) {
         if ($(this).attr('data-colonne') == Number(playerColumn) - i) {
           if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
@@ -52,7 +52,7 @@ class Player {
     //find ways going up
     $('div[data-colonne=' + playerColumn + ']').each(function () {
       for(var i = 1; i < 4; i++) {
-        if ($(this).attr('data-rangee') == Number(playerRow) + i) {
+        if ($(this).attr('data-raw') == Number(playerRow) + i) {
           if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
            && !$(this).hasClass('player2')) {
             $(this).addClass('highlighted');
@@ -66,7 +66,7 @@ class Player {
     //find ways going down
     $('div[data-colonne=' + playerColumn + ']').reverse().each(function () {
       for (var i = 1; i < 4; i++) {
-        if ($(this).attr('data-rangee') == Number(playerRow) - i) {
+        if ($(this).attr('data-raw') == Number(playerRow) - i) {
           if (!$(this).hasClass('obstacle') && !$(this).hasClass('player1')
            && !$(this).hasClass('player2')) {
             $(this).addClass('highlighted');
@@ -81,7 +81,7 @@ class Player {
   movePlayer() {
     var ways = $('.highlighted');
     ways.click(function () {
-      //remove all click listeners
+      //remove all previous listeners
       ways.off('click');
 
       var startCell;
@@ -97,19 +97,19 @@ class Player {
         opponentCell = $('.player1');
       }
 
-      // check if items on target cell, if YES, make exchange, if NO, change round
+      //check if items on target cell, if YES, make exchange, if NO, change round
       switch (targetedCell.attr('class')) {
-        case 'cellule axe highlighted': currentPlayer.exchangeWeapon(targetedCell, axe);
+        case 'cell axe highlighted': currentPlayer.exchangeWeapon(targetedCell, axe);
         break;
-        case 'cellule sword highlighted': currentPlayer.exchangeWeapon(targetedCell, sword);
+        case 'cell sword highlighted': currentPlayer.exchangeWeapon(targetedCell, sword);
         break;
-        case 'cellule bow highlighted': currentPlayer.exchangeWeapon(targetedCell, bow);
+        case 'cell bow highlighted': currentPlayer.exchangeWeapon(targetedCell, bow);
         break;
-        case 'cellule woodStick highlighted': currentPlayer.exchangeWeapon(targetedCell, woodStick);
+        case 'cell woodStick highlighted': currentPlayer.exchangeWeapon(targetedCell, woodStick);
         break;
 
         //case if target cell is an armor
-        case 'cellule shield highlighted' : currentPlayer.lifePoints += shield.defensePoints;
+        case 'cell shield highlighted' : currentPlayer.lifePoints += shield.defensePoints;
           refreshStats();
       }
 
@@ -118,18 +118,18 @@ class Player {
 
       //startCell takes dropped weapon class if any
       if (startCell.attr('data-armeLaissee') !== undefined) {
-        startCell.attr('class', 'cellule' + ' ' + startCell.attr('data-armeLaissee'));
+        startCell.attr('class', 'cell' + ' ' + startCell.attr('data-armeLaissee'));
       } else {
-        startCell.attr('class', 'cellule empty');
+        startCell.attr('class', 'cell empty');
       }
 
       ways.removeClass('highlighted');
 
       //Adjacent cells? Opponent? YES: launchFight, or, changeRound et findWays
-      if (opponentCell.attr('data-rangee') == targetedCell.attr('data-rangee') &&
+      if (opponentCell.attr('data-raw') == targetedCell.attr('data-raw') &&
        Math.abs(opponentCell.attr('data-colonne') - targetedCell.attr('data-colonne')) == 1 ||
         opponentCell.attr('data-colonne') == targetedCell.attr('data-colonne') &&
-        Math.abs(opponentCell.attr('data-rangee') - targetedCell.attr('data-rangee')) == 1) {
+        Math.abs(opponentCell.attr('data-raw') - targetedCell.attr('data-raw')) == 1) {
         lancerCombat();
       } else {
         changeRound();
@@ -147,7 +147,7 @@ class Player {
     refreshStats();
   }
 
-  attaquer() {
+  attack() {
     //css animations
     if (currentPlayer == player1) {
       $('.avatar-garde').css('animation', 'garde-attaque 0.6s');
@@ -167,7 +167,7 @@ class Player {
       opponent.lifePoints -= currentPlayer.attackPoints;
     }
     if (player1.lifePoints <= 0 || player2.lifePoints <= 0) {
-      terminerPartie();
+      endGame();
     }
   }
 

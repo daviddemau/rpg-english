@@ -1,3 +1,7 @@
+//setup players data
+var playersHP = 100;
+var baseAP = 10;
+
 //variables
 var board = [];
 var items = [];
@@ -7,7 +11,7 @@ const game = new Grid(9, 3, 2, 10);
 game.createGrid();
 
 //create weapons
-const woodStick = new Weapon('woodStick', 10, undefined);
+const woodStick = new Weapon('woodStick', baseAP, undefined);
 const sword = new Weapon('sword', 35, randomizeIndex());
 const bow = new Weapon('bow', 25, randomizeIndex());
 const axe = new Weapon('axe', 25, randomizeIndex());
@@ -16,8 +20,8 @@ const axe = new Weapon('axe', 25, randomizeIndex());
 const shield = new Armor('shield', 60, randomizeIndex());
 
 //create players
-const player1 = new Player('player1', 100, 10, woodStick, randomizeIndex());
-const player2 = new Player('player2', 100, 10, woodStick, randomizeIndex());
+const player1 = new Player('player1', playersHP, baseAP, woodStick, randomizeIndex());
+const player2 = new Player('player2', playersHP, baseAP, woodStick, randomizeIndex());
 
 //create obstacles
 var obstacles = [];
@@ -30,7 +34,7 @@ loadBoard();
 
 //get random indexes for all board items
 function randomizeIndex() {
-  let nbrItems = game.joueurs + game.armes + game.obstacles;
+  let nbrItems = game.players + game.weapons + game.obstacles;
   while (items.length < nbrItems) {
     let random = Math.floor(Math.random() * board.length);
     if (!items.includes(random)) {
@@ -49,8 +53,8 @@ function loadBoard() {
     board.map((element) => {
       //define what is a cell
       let cell = document.createElement('div');
-      cell.className = 'cellule';
-      cell.setAttribute('data-rangee', element.rangee);
+      cell.className = 'cell';
+      cell.setAttribute('data-raw', element.raw);
       cell.setAttribute('data-colonne', element.col);
 
       //define if a cell contains a rock
@@ -79,16 +83,16 @@ function loadBoard() {
       }
 
       //define raws
-      let rangee = document.createElement('div');
-      rangee.className = 'rangee';
-      rangee.id = 'rangee' + '_' + element.rangee;
+      let raw = document.createElement('div');
+      raw.className = 'raw';
+      raw.id = 'raw' + '_' + element.raw;
 
-      //each time a raw has a column with index 0, we integrate it on a new raw
+      //each time a well has a column with index 0, create new raw
       if (element.col == 0) {
-        $('.plateau').append(rangee);
-        document.getElementById(rangee.id).appendChild(cell);
+        $('.plateau').append(raw);
+        document.getElementById(raw.id).appendChild(cell);
       } else {
-        document.getElementById(rangee.id).appendChild(cell);
+        document.getElementById(raw.id).appendChild(cell);
       }
     });
   }

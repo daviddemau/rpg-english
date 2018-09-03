@@ -1,14 +1,14 @@
 class Grid {
-  constructor(murs, armes, joueurs, obstacles) {
-    this.murs = murs;
-    this.armes = armes;
-    this.joueurs = joueurs;
+  constructor(wall, weapons, players, obstacles) {
+    this.wall = wall;
+    this.weapons = weapons;
+    this.players = players;
     this.obstacles = obstacles;
   }
 
   createGrid() {
-    for (var i = 0; i < this.murs; i++) {
-      for (var j = 0; j < this.murs; j++) {
+    for (var i = 0; i < this.wall; i++) {
+      for (var j = 0; j < this.wall; j++) {
         board.push(new Cell(i, j));
       }
     }

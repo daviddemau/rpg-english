@@ -1,48 +1,47 @@
-//definir les joueurs
+//define players
 var currentPlayer = player1;
 var opponent = player2;
 
-//deplacements sur le plateau
+//moves on main board
 currentPlayer.findWays();
 currentPlayer.movePlayer();
 
-//demarrer combat
+//start fight sequence
 function lancerCombat() {
   //positionner les joueurs face a face pour le combat
   $('.plateau').css('display', 'none');
   $('.tableau-garde').css('margin-left', '25%');
   $('.tableau-archer').css('margin-left', '40px');
 
-  //surligner le premier joueur qui attaque
+  //show which player is attacking now
   hightlightPlayer();
 }
 
-//personne ne defend au debut du combat
+//nobody is defending when fight is starting
 var defense = false;
 
-//bouton attaquer
+//actions when 'attack' button is pressed
 $('.attaque').click(function () {
-  currentPlayer.attaquer();
+  currentPlayer.attack();
 });
 
-//bouton defendre
+//actions when 'defend' button is pressed
 $('.defense').click(function () {
   currentPlayer.defend();
 });
 
-//bouton soins
+//actions when 'heal' button is pressed
 $('.soin').click(function () {
   currentPlayer.soins();
 });
 
-//changer de joueur à chaque action et surligner le bon joueur
+//change round
 $(':button').click(function () {
   refreshStats();
   changeRound();
   hightlightPlayer();
 });
 
-//changer de tour
 function changeRound() {
   if(currentPlayer == player1) {
     currentPlayer = player2;
@@ -76,20 +75,20 @@ function hightlightPlayer() {
   }
 }
 
-function terminerPartie() {
+function endGame() {
   if (player1.lifePoints <= 0) {
     $('.end').css('background', 'url(styles/images/Knight/Die/9.png) bottom no-repeat / contain');
   } else if (player2.lifePoints <= 0) {
     $('.end').css('background', 'url(styles/images/Archer/Die/9.png) bottom no-repeat / contain');
   }
 
-  //ne laisser que la div gameover sur l'écran
+  //final div on screen -- restart button available
   $('.gameOver').css('display', 'block');
   $('.tableau-garde').css('display', 'none');
   $('.tableau-archer').css('display', 'none');
 }
 
-//charger une nouvelle partie
+//reload game
 $('.reset').click(function () {
   location.reload();
 });
