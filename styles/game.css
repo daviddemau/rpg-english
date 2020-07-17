@@ -67,7 +67,7 @@ button {
 /* -------------------------------------------------- */
 
 .player1 {
-  background-image: url('images/Knight/Stand/1.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/1.png');
   background-size: cover;
   background-size: 110%;
   background-position: center;
@@ -75,7 +75,7 @@ button {
 }
 
 .player2 {
-  background-image: url('images/Archer/Stand/1.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/1.png');
   background-size: cover;
   background-size: 110%;
   background-position: center;
@@ -84,7 +84,7 @@ button {
 }
 
 .obstacle {
-  background-image: url('images/rock-576670_1280.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/rock-576670_1280.png');
   background-size: cover;
   background-size: 70%;
   background-position: center;
@@ -92,7 +92,7 @@ button {
 }
 
 .woodStick {
-  background-image: url('images/Icon Pack 2/128x128/woodSword.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/Icon Pack 2/128x128/woodSword.png');
   background-size: cover;
   background-size: 50%;
   background-position: center;
@@ -100,7 +100,7 @@ button {
 }
 
 .sword {
-  background-image: url('images/Icon Pack 2/128x128/sword2.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/Icon Pack 2/128x128/sword2.png');
   background-size: cover;
   background-size: 80%;
   background-position: center;
@@ -108,14 +108,14 @@ button {
 }
 
 .axe {
-  background-image: url('images/Icon Pack 2/128x128/axeDouble.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/Icon Pack 2/128x128/axeDouble.png');
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .bow {
-  background-image: url('images/Icon Pack 2/128x128/bow2.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/Icon Pack 2/128x128/bow2.png');
   background-size: contain;
   background-size: 80%;
   background-position: center;
@@ -123,7 +123,7 @@ button {
 }
 
 .shield {
-  background-image: url('images/Icon Pack 2/128x128/shieldSmall2.png');
+  background-image: url('projects-portfolio/rpg-english/assets/images/Icon Pack 2/128x128/shieldSmall2.png');
   background-size: contain;
   background-size: 80%;
   background-position: center;
