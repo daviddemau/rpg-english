@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/game.css">
+  <link rel="stylesheet" href="styles/queries.css">
+</head>
+<body>
+  <img class="logo" src="assets/images/Fantasy%20War.png">
+
+  <div class="main">
+    <div class="tableau-garde">
+      <div class="avatar-garde"></div>
+      <div class="garde-stats">
+        <ul>
+          <li>Life points:<span></span></li>
+          <li>Attack points:<span></span></li>
+          <li>Equipment:<span></span></li>
+        </ul>
+      </div>
+      <button class="attaque hide">attack</button>
+      <button class="defense hide">defend</button>
+      <button class="soin hide">heal</button>
+    </div>
+    <div class="plateau">
+    </div>
+    <div class="gameOver"><p>GAME OVER</p>
+      <div class="end"></div>
+      <button class="reset">Play again</button>
+      </div>
+    <div class="tableau-archer">
+      <div class="avatar-archer"></div>
+      <div class="archer-stats">
+        <ul>
+          <li>Life points:<span></span></li>
+          <li>Attack points:<span></span></li>
+          <li>Equipment:<span></span></li>
+        </ul>
+      </div>
+      <button class="attaque hide">attack</button>
+      <button class="defense hide">defend</button>
+      <button class="soin hide">heal</button>
+    </div>
+  </div>
+
+  <script src="scripts/images-preload.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+  <script src="classes/armor.js"></script>
+  <script src="classes/cell.js"></script>
+  <script src="classes/grid.js"></script>
+  <script src="classes/player.js"></script>
+  <script src="classes/weapon.js"></script>
+  <script src="scripts/board.js"></script>
+  <script src="scripts/game.js"></script>
+
+</body>
+</html>
