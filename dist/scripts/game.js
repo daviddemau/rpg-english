@@ -76,12 +76,6 @@ function hightlightPlayer() {
 }
 
 function endGame() {
-  if (player1.lifePoints <= 0) {
-    $('.end').css('background', 'url(styles/images/Knight/Die/9.png) bottom no-repeat / contain');
-  } else if (player2.lifePoints <= 0) {
-    $('.end').css('background', 'url(styles/images/Archer/Die/9.png) bottom no-repeat / contain');
-  }
-
   //final div on screen -- restart button available
   $('.gameOver').css('display', 'block');
   $('.tableau-garde').css('display', 'none');

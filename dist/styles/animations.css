@@ -1,57 +1,57 @@
 /* animation frames */
 @keyframes garde {
-  0%   {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/0.png');}
-  10%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/1.png');}
-  20%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/2.png');}
-  30% {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/3.png');}
-  40%   {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/4.png');}
-  50%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/5.png');}
-  60%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/6.png');}
-  70% {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/7.png');}
-  80%   {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/8.png');}
-  90%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/9.png');}
-  100%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Stand/0.png');}
+  0%   {background-image: url('../assets/images/Knight/Stand/0.png');}
+  10%  {background-image: url('../assets/images/Knight/Stand/1.png');}
+  20%  {background-image: url('../assets/images/Knight/Stand/2.png');}
+  30% {background-image: url('../assets/images/Knight/Stand/3.png');}
+  40%   {background-image: url('../assets/images/Knight/Stand/4.png');}
+  50%  {background-image: url('../assets/images/Knight/Stand/5.png');}
+  60%  {background-image: url('../assets/images/Knight/Stand/6.png');}
+  70% {background-image: url('../assets/images/Knight/Stand/7.png');}
+  80%   {background-image: url('../assets/images/Knight/Stand/8.png');}
+  90%  {background-image: url('../assets/images/Knight/Stand/9.png');}
+  100%  {background-image: url('../assets/images/Knight/Stand/0.png');}
 }
 
 @keyframes rodeur {
-  0%   {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/0.png');
+  0%   {background-image: url('../assets/images/Archer/Stand/0.png');
 transform: scaleX(-1);}
-  10%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/1.png');transform: scaleX(-1);}
-  20%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/2.png');transform: scaleX(-1);}
-  30% {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/3.png');transform: scaleX(-1);}
-  40%   {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/4.png');transform: scaleX(-1);}
-  50%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/5.png');transform: scaleX(-1);}
-  60%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/6.png');transform: scaleX(-1);}
-  70% {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/7.png');transform: scaleX(-1);}
-  80%   {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/8.png');transform: scaleX(-1);}
-  90%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/9.png');transform: scaleX(-1);}
-  100%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Stand/0.png');transform: scaleX(-1);}
+  10%  {background-image: url('../assets/images/Archer/Stand/1.png');transform: scaleX(-1);}
+  20%  {background-image: url('../assets/images/Archer/Stand/2.png');transform: scaleX(-1);}
+  30% {background-image: url('../assets/images/Archer/Stand/3.png');transform: scaleX(-1);}
+  40%   {background-image: url('../assets/images/Archer/Stand/4.png');transform: scaleX(-1);}
+  50%  {background-image: url('../assets/images/Archer/Stand/5.png');transform: scaleX(-1);}
+  60%  {background-image: url('../assets/images/Archer/Stand/6.png');transform: scaleX(-1);}
+  70% {background-image: url('../assets/images/Archer/Stand/7.png');transform: scaleX(-1);}
+  80%   {background-image: url('../assets/images/Archer/Stand/8.png');transform: scaleX(-1);}
+  90%  {background-image: url('../assets/images/Archer/Stand/9.png');transform: scaleX(-1);}
+  100%  {background-image: url('../assets/images/Archer/Stand/0.png');transform: scaleX(-1);}
 }
 
 @keyframes garde-attaque {
-  0%   {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/0.png');}
-  10%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/1.png');}
-  20%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/2.png');}
-  30% {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/3.png');}
-  40%   {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/4.png');}
-  50%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/5.png');}
-  60%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/6.png');}
-  70% {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/7.png');}
-  80%   {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/8.png');}
-  90%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/9.png');}
-  100%  {background-image: url('projects-portfolio/rpg-english/assets/images/Knight/Attack1H/0.png');}
+  0%   {background-image: url('../assets/images/Knight/Attack1H/0.png');}
+  10%  {background-image: url('../assets/images/Knight/Attack1H/1.png');}
+  20%  {background-image: url('../assets/images/Knight/Attack1H/2.png');}
+  30% {background-image: url('../assets/images/Knight/Attack1H/3.png');}
+  40%   {background-image: url('../assets/images/Knight/Attack1H/4.png');}
+  50%  {background-image: url('../assets/images/Knight/Attack1H/5.png');}
+  60%  {background-image: url('../assets/images/Knight/Attack1H/6.png');}
+  70% {background-image: url('../assets/images/Knight/Attack1H/7.png');}
+  80%   {background-image: url('../assets/images/Knight/Attack1H/8.png');}
+  90%  {background-image: url('../assets/images/Knight/Attack1H/9.png');}
+  100%  {background-image: url('../assets/images/Knight/Attack1H/0.png');}
 }
 
 @keyframes archer-attaque {
-  0%   {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/0.png');transform: scaleX(-1);}
-  10%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/1.png');transform: scaleX(-1);}
-  20%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/2.png');transform: scaleX(-1);}
-  30% {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/3.png');transform: scaleX(-1);}
-  40%   {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/4.png');transform: scaleX(-1);}
-  50%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/5.png');transform: scaleX(-1);}
-  60%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/6.png');transform: scaleX(-1);}
-  70% {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/7.png');transform: scaleX(-1);}
-  80%   {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/8.png');transform: scaleX(-1);}
-  90%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/9.png');transform: scaleX(-1);}
-  100%  {background-image: url('projects-portfolio/rpg-english/assets/images/Archer/Shot/0.png');transform: scaleX(-1);}
+  0%   {background-image: url('../assets/images/Archer/Shot/0.png');transform: scaleX(-1);}
+  10%  {background-image: url('../assets/images/Archer/Shot/1.png');transform: scaleX(-1);}
+  20%  {background-image: url('../assets/images/Archer/Shot/2.png');transform: scaleX(-1);}
+  30% {background-image: url('../assets/images/Archer/Shot/3.png');transform: scaleX(-1);}
+  40%   {background-image: url('../assets/images/Archer/Shot/4.png');transform: scaleX(-1);}
+  50%  {background-image: url('../assets/images/Archer/Shot/5.png');transform: scaleX(-1);}
+  60%  {background-image: url('../assets/images/Archer/Shot/6.png');transform: scaleX(-1);}
+  70% {background-image: url('../assets/images/Archer/Shot/7.png');transform: scaleX(-1);}
+  80%   {background-image: url('../assets/images/Archer/Shot/8.png');transform: scaleX(-1);}
+  90%  {background-image: url('../assets/images/Archer/Shot/9.png');transform: scaleX(-1);}
+  100%  {background-image: url('../assets/images/Archer/Shot/0.png');transform: scaleX(-1);}
 }
