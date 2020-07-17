@@ -1,0 +1,22 @@
+{
+  "name": "fantasy-war",
+  "version": "1.0.0",
+  "description": "classic RPG where players need to gather weapons before engaging in a turn based fight",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daviddemau/rpg-english.git"
+  },
+  "author": "David Demau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daviddemau/rpg-english/issues"
+  },
+  "homepage": "https://github.com/daviddemau/rpg-english#readme",
+  "dependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
